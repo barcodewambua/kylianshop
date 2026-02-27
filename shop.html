@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | KylianShop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navigation (Copied from index) -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white border-bottom py-2">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">KYLIAN</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <a href="#" class="text-dark fs-5"><i class="bi bi-search"></i></a>
+                <a href="#" class="text-dark fs-5"><i class="bi bi-heart"></i></a>
+                <a href="cart.html" class="text-dark fs-5 position-relative">
+                    <i class="bi bi-cart3"></i>
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark" style="font-size: 0.65rem; display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="bg-light py-5 mt-5">
+        <div class="container text-center pt-4">
+            <h1 class="display-5 fw-bold font-heading mb-2">Shop Collection</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0 text-uppercase tracking-widest" style="font-size: 0.8rem;">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Shop Content -->
+    <section class="section-padding flex-grow-1 py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Filters -->
+                <div class="col-lg-3 mb-5 mb-lg-0">
+                    <div class="pe-lg-4">
+                        <div class="mb-5">
+                            <h5 class="font-heading mb-4 text-uppercase fw-bold fs-6 tracking-widest">Categories</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><a href="#" class="text-decoration-none text-dark d-flex justify-content-between"><span>All Products</span> <span class="text-muted">(124)</span></a></li>
+                                <li class="mb-3"><a href="#" class="text-decoration-none text-muted d-flex justify-content-between"><span>Men</span> <span class="text-muted">(45)</span></a></li>
+                                <li class="mb-3"><a href="#" class="text-decoration-none text-muted d-flex justify-content-between"><span>Women</span> <span class="text-muted">(56)</span></a></li>
+                                <li class="mb-3"><a href="#" class="text-decoration-none text-muted d-flex justify-content-between"><span>Accessories</span> <span class="text-muted">(23)</span></a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <h5 class="font-heading mb-4 text-uppercase fw-bold fs-6 tracking-widest">Price</h5>
+                            <div>
+                                <input type="range" class="form-range" min="0" max="500" id="customRange">
+                                <div class="d-flex justify-content-between text-muted fs-7 mt-2">
+                                    <span>$0</span>
+                                    <span>$500+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <h5 class="font-heading mb-4 text-uppercase fw-bold fs-6 tracking-widest">Size</h5>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button class="btn btn-outline-dark btn-sm rounded-0 border-soft">XS</button>
+                                <button class="btn btn-dark btn-sm rounded-0">S</button>
+                                <button class="btn btn-outline-dark btn-sm rounded-0 border-soft">M</button>
+                                <button class="btn btn-outline-dark btn-sm rounded-0 border-soft">L</button>
+                                <button class="btn btn-outline-dark btn-sm rounded-0 border-soft">XL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+                        <p class="text-muted mb-0">Showing 1-9 of 124 results</p>
+                        <select class="form-select w-auto border-0 shadow-none text-uppercase fw-medium text-dark" style="cursor: pointer;">
+                            <option value="new">Sort by Latest</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+
+                    <div class="row g-4">
+                        <!-- Product Item 1 -->
+                        <div class="col-md-4 col-6">
+                            <div class="card product-card h-100">
+                                <div class="position-relative overflow-hidden group">
+                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1780&auto=format&fit=crop" class="card-img-top" alt="Product">
+                                    <div class="position-absolute align-items-center justify-content-center d-flex w-100 h-100 top-0 start-0 bg-dark bg-opacity-25 opacity-0 transition-all shop-quickview" style="transition: opacity 0.3s;">
+                                        <a href="product.html" class="btn btn-light rounded-0 px-4 text-uppercase tracking-widest fs-7 z-3">Quick View</a>
+                                    </div>
+                                </div>
+                                <div class="card-body bg-white text-center pb-2 px-0">
+                                    <a href="product.html" class="text-decoration-none text-dark">
+                                        <h5 class="product-title m-0">Essential White Tee</h5>
+                                    </a>
+                                    <p class="product-price mt-1">$45.00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Item 2 -->
+                        <div class="col-md-4 col-6">
+                            <div class="card product-card h-100">
+                                <div class="position-relative overflow-hidden group">
+                                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop" class="card-img-top" alt="Product">
+                                    <div class="position-absolute align-items-center justify-content-center d-flex w-100 h-100 top-0 start-0 bg-dark bg-opacity-25 opacity-0 transition-all shop-quickview" style="transition: opacity 0.3s;">
+                                        <a href="product.html" class="btn btn-light rounded-0 px-4 text-uppercase tracking-widest fs-7 z-3">Quick View</a>
+                                    </div>
+                                </div>
+                                <div class="card-body bg-white text-center pb-2 px-0">
+                                    <a href="product.html" class="text-decoration-none text-dark">
+                                        <h5 class="product-title m-0">Minimalist Black Jacket</h5>
+                                    </a>
+                                    <p class="product-price mt-1">$185.00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Item 3 -->
+                        <div class="col-md-4 col-6">
+                            <div class="card product-card h-100">
+                                <div class="position-relative overflow-hidden group">
+                                    <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1887&auto=format&fit=crop" class="card-img-top" alt="Product">
+                                    <div class="position-absolute align-items-center justify-content-center d-flex w-100 h-100 top-0 start-0 bg-dark bg-opacity-25 opacity-0 transition-all shop-quickview" style="transition: opacity 0.3s;">
+                                        <a href="product.html" class="btn btn-light rounded-0 px-4 text-uppercase tracking-widest fs-7 z-3">Quick View</a>
+                                    </div>
+                                </div>
+                                <div class="card-body bg-white text-center pb-2 px-0">
+                                    <a href="product.html" class="text-decoration-none text-dark">
+                                        <h5 class="product-title m-0">Classic Denim Jeans</h5>
+                                    </a>
+                                    <p class="product-price mt-1">$120.00</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Item 4 -->
+                        <div class="col-md-4 col-6">
+                            <div class="card product-card h-100">
+                                <div class="position-relative overflow-hidden group">
+                                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1964&auto=format&fit=crop" class="card-img-top" alt="Product">
+                                    <div class="position-absolute top-0 end-0 p-3 z-1">
+                                        <span class="badge bg-danger rounded-0 px-2 py-1">SOLD OUT</span>
+                                    </div>
+                                    <div class="position-absolute align-items-center justify-content-center d-flex w-100 h-100 top-0 start-0 bg-dark bg-opacity-25 opacity-0 transition-all shop-quickview" style="transition: opacity 0.3s;">
+                                        <a href="product.html" class="btn btn-light rounded-0 px-4 text-uppercase tracking-widest fs-7 z-3">Quick View</a>
+                                    </div>
+                                </div>
+                                <div class="card-body bg-white text-center pb-2 px-0">
+                                    <a href="product.html" class="text-decoration-none text-dark">
+                                        <h5 class="product-title m-0">Oversized Beige Knit</h5>
+                                    </a>
+                                    <p class="product-price mt-1">$95.00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Product Item 5 -->
+                         <div class="col-md-4 col-6">
+                            <div class="card product-card h-100">
+                                <div class="position-relative overflow-hidden group">
+                                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1972&auto=format&fit=crop" class="card-img-top" alt="Product">
+                                    <div class="position-absolute align-items-center justify-content-center d-flex w-100 h-100 top-0 start-0 bg-dark bg-opacity-25 opacity-0 transition-all shop-quickview" style="transition: opacity 0.3s;">
+                                        <a href="product.html" class="btn btn-light rounded-0 px-4 text-uppercase tracking-widest fs-7 z-3">Quick View</a>
+                                    </div>
+                                </div>
+                                <div class="card-body bg-white text-center pb-2 px-0">
+                                    <a href="product.html" class="text-decoration-none text-dark">
+                                        <h5 class="product-title m-0">White Cotton Hoodie</h5>
+                                    </a>
+                                    <p class="product-price mt-1">$80.00</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         <!-- Product Item 6 -->
+                         <div class="col-md-4 col-6">
+                            <div class="card product-card h-100">
+                                <div class="position-relative overflow-hidden group">
+                                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1888&auto=format&fit=crop" class="card-img-top" alt="Product">
+                                    <div class="position-absolute align-items-center justify-content-center d-flex w-100 h-100 top-0 start-0 bg-dark bg-opacity-25 opacity-0 transition-all shop-quickview" style="transition: opacity 0.3s;">
+                                        <a href="product.html" class="btn btn-light rounded-0 px-4 text-uppercase tracking-widest fs-7 z-3">Quick View</a>
+                                    </div>
+                                </div>
+                                <div class="card-body bg-white text-center pb-2 px-0">
+                                    <a href="product.html" class="text-decoration-none text-dark">
+                                        <h5 class="product-title m-0">Casual Oxford Shirt</h5>
+                                    </a>
+                                    <p class="product-price mt-1">$65.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <nav class="mt-5 pt-4 border-top d-flex justify-content-center">
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a class="page-link border-0 text-dark" href="#">Prev</a></li>
+                            <li class="page-item active"><a class="page-link bg-dark border-dark rounded-0 px-3" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link text-dark border-0 px-3" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link text-dark border-0 px-3" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link border-0 text-dark" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer bg-secondary bg-opacity-10 pt-5 mt-auto">
+        <!-- Reusing same footer from index -->
+        <div class="container py-4 border-bottom text-center">
+             <h4 class="mb-2 text-dark font-heading fw-bold">KYLIAN</h4>
+             <p class="text-muted small">Elevating everyday essentials.</p>
+        </div>
+        <div class="container py-3 text-center">
+            <p class="text-muted small mb-0">&copy; 2026 KylianShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <style>
+        .shop-quickview { opacity: 0; }
+        .product-card:hover .shop-quickview { opacity: 1 !important; }
+        .fs-7 { font-size: 0.85rem; }
+        .border-soft { border-color: #dee2e6; }
+    </style>
+</body>
+</html>

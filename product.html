@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product | KylianShop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white border-bottom shadow-sm py-2">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">KYLIAN</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <a href="cart.html" class="text-dark fs-5 position-relative">
+                    <i class="bi bi-cart3"></i>
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark" style="font-size: 0.65rem; display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Section -->
+    <section class="section-padding flex-grow-1" style="margin-top: 80px;">
+        <div class="container py-5">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb text-uppercase tracking-widest" style="font-size: 0.8rem;">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+                    <li class="breadcrumb-item"><a href="shop.html" class="text-decoration-none text-muted">Shop</a></li>
+                    <li class="breadcrumb-item"><a href="shop.html?category=men" class="text-decoration-none text-muted">Men</a></li>
+                    <li class="breadcrumb-item active text-dark" aria-current="page">Essential White Tee</li>
+                </ol>
+            </nav>
+
+            <div class="row g-5">
+                <!-- Product Galleries -->
+                <div class="col-lg-7">
+                    <div class="row g-2">
+                        <!-- Main Image -->
+                        <div class="col-12 mb-2">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1780&auto=format&fit=crop" id="main-product-img" class="w-100 object-fit-cover bg-light" style="height: 600px;" alt="Product">
+                        </div>
+                        <!-- Thumbnails -->
+                        <div class="col-3">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1780&auto=format&fit=crop" onclick="document.getElementById('main-product-img').src=this.src" class="w-100 object-fit-cover bg-light border opacity-75 product-thumb" style="height: 150px; cursor: pointer;" alt="Thumb 1">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=1887&auto=format&fit=crop" onclick="document.getElementById('main-product-img').src=this.src" class="w-100 object-fit-cover bg-light border opacity-75 product-thumb" style="height: 150px; cursor: pointer;" alt="Thumb 2">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1887&auto=format&fit=crop" onclick="document.getElementById('main-product-img').src=this.src" class="w-100 object-fit-cover bg-light border opacity-75 product-thumb" style="height: 150px; cursor: pointer;" alt="Thumb 3">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-lg-5">
+                    <div class="sticky-top" style="top: 100px;">
+                        <span class="text-muted text-uppercase tracking-widest" style="font-size: 0.8rem;">Kylian</span>
+                        <h1 class="font-heading display-6 fw-bold mt-2 mb-3">Essential White Tee</h1>
+                        <p class="fs-4 text-dark mb-4">$45.00</p>
+                        
+                        <p class="text-muted mb-4" style="line-height: 1.8;">The perfect foundational piece. Crafted from 100% heavyweight organic cotton, this t-shirt features a relaxed silhouette, dropped shoulders, and a ribbed crewneck collar.</p>
+                        
+                        <!-- Size Selection -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-end mb-2">
+                                <span class="fw-medium text-uppercase text-dark fs-7">Size</span>
+                                <a href="#" class="text-muted text-decoration-underline fs-7">Size Guide</a>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 size-selector">
+                                <input type="radio" class="btn-check" name="options-size" id="size-s" autocomplete="off" value="S">
+                                <label class="btn btn-outline-dark rounded-0 px-4 py-2" for="size-s">S</label>
+
+                                <input type="radio" class="btn-check" name="options-size" id="size-m" autocomplete="off" value="M" checked>
+                                <label class="btn btn-outline-dark rounded-0 px-4 py-2" for="size-m">M</label>
+
+                                <input type="radio" class="btn-check" name="options-size" id="size-l" autocomplete="off" value="L">
+                                <label class="btn btn-outline-dark rounded-0 px-4 py-2" for="size-l">L</label>
+
+                                <input type="radio" class="btn-check" name="options-size" id="size-xl" autocomplete="off" value="XL">
+                                <label class="btn btn-outline-dark rounded-0 px-4 py-2" for="size-xl">XL</label>
+                            </div>
+                        </div>
+
+                        <!-- Quantity and Add to Cart -->
+                        <div class="d-flex gap-3 mb-5 mt-4">
+                            <div class="input-group border border-dark rounded-0" style="width: 120px;">
+                                <button class="btn btn-light rounded-0 border-0" type="button" onclick="document.getElementById('qty').value = Math.max(1, parseInt(document.getElementById('qty').value) - 1)">-</button>
+                                <input type="text" class="form-control border-0 text-center shadow-none bg-white" id="qty" value="1">
+                                <button class="btn btn-light rounded-0 border-0" type="button" onclick="document.getElementById('qty').value = parseInt(document.getElementById('qty').value) + 1">+</button>
+                            </div>
+                            <button id="add-btn" class="btn btn-primary flex-grow-1" onclick="handleAddToCart()">Add to Cart - $<span id="btn-price">45.00</span></button>
+                        </div>
+
+                        <!-- Accordions for info -->
+                        <div class="accordion accordion-flush border-top border-bottom" id="productAccordion">
+                            <div class="accordion-item bg-transparent">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button bg-transparent shadow-none px-0 fw-bold text-uppercase fs-7 text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                        Details & Care
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#productAccordion">
+                                    <div class="accordion-body px-0 text-muted pb-4">
+                                        <ul class="mb-0 ps-3">
+                                            <li class="mb-1">100% Organic Heavyweight Cotton.</li>
+                                            <li class="mb-1">Machine wash cold with like colors.</li>
+                                            <li class="mb-1">Tumble dry low or hang dry.</li>
+                                            <li>Made in Portugal.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item bg-transparent">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent shadow-none px-0 fw-bold text-uppercase fs-7 text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                        Shipping & Returns
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#productAccordion">
+                                    <div class="accordion-body px-0 text-muted pb-4">
+                                        Free standard shipping on orders over $150. Returns accepted within 30 days of delivery for unworn items with tags attached.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Related Products -->
+             <div class="mt-5 pt-5 border-top">
+                <h3 class="text-center font-heading text-uppercase tracking-widest mb-5">You May Also Like</h3>
+                <div class="row g-4">
+                    <div class="col-md-3 col-6">
+                        <div class="card product-card h-100">
+                            <div class="position-relative overflow-hidden group">
+                                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop" class="card-img-top" style="height: 300px;" alt="Product">
+                            </div>
+                            <div class="card-body bg-white text-center pb-2 px-0">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h6 class="product-title fw-normal m-0">Minimalist Black Jacket</h6>
+                                </a>
+                                <p class="product-price mt-1 text-muted">$185.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="card product-card h-100">
+                            <div class="position-relative overflow-hidden group">
+                                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1887&auto=format&fit=crop" class="card-img-top" style="height: 300px;" alt="Product">
+                            </div>
+                            <div class="card-body bg-white text-center pb-2 px-0">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h6 class="product-title fw-normal m-0">Classic Denim Jeans</h6>
+                                </a>
+                                <p class="product-price mt-1 text-muted">$120.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer bg-secondary bg-opacity-10 pt-5 mt-auto">
+        <div class="container py-4 border-bottom text-center">
+             <h4 class="mb-2 text-dark font-heading fw-bold">KYLIAN</h4>
+             <p class="text-muted small">Elevating everyday essentials.</p>
+        </div>
+        <div class="container py-3 text-center">
+            <p class="text-muted small mb-0">&copy; 2026 KylianShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Update product price when quantity changes dynamically (visual only for this mock)
+        document.getElementById('qty').addEventListener('change', updatePrice);
+        
+        function updatePrice() {
+            let q = parseInt(document.getElementById('qty').value) || 1;
+            document.getElementById('btn-price').innerText = (45.00 * q).toFixed(2);
+        }
+
+        // Thumbnails opacity toggle
+        const thumbs = document.querySelectorAll('.product-thumb');
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                thumbs.forEach(t => t.classList.add('opacity-75'));
+                thumb.classList.remove('opacity-75');
+            });
+        });
+        
+        // Ensure first thumb is active
+        if(thumbs.length > 0) thumbs[0].classList.remove('opacity-75');
+
+        function handleAddToCart() {
+            const sizeMap = {
+                'size-s': 'S',
+                'size-m': 'M',
+                'size-l': 'L',
+                'size-xl': 'XL'
+            };
+            let selectedSize = 'M';
+            document.querySelectorAll('input[name="options-size"]').forEach(radio => {
+                if(radio.checked) selectedSize = sizeMap[radio.id] || radio.value;
+            });
+            
+            let qty = parseInt(document.getElementById('qty').value) || 1;
+            
+            addToCart({
+                id: 'p1',
+                name: 'Essential White Tee',
+                price: 45.00,
+                image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1780&auto=format&fit=crop',
+                size: selectedSize,
+                quantity: qty
+            });
+            
+            const btn = document.getElementById('add-btn');
+            const origText = btn.innerHTML;
+            btn.innerHTML = 'Added &#10003;';
+            btn.classList.replace('btn-primary', 'btn-success');
+            setTimeout(() => {
+                btn.innerHTML = origText;
+                btn.classList.replace('btn-success', 'btn-primary');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

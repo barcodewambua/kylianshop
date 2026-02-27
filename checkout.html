@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | KylianShop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-light min-vh-100 pb-5">
+    <nav class="navbar navbar-light bg-white border-bottom py-3">
+        <div class="container justify-content-center justify-content-md-between">
+            <a class="navbar-brand fs-4 tracking-widest fw-bold" href="index.html">KYLIAN</a>
+            <div class="d-none d-md-flex align-items-center text-muted fs-7 tracking-widest text-uppercase">
+                <i class="bi bi-lock-fill me-2 fs-6"></i> Secure Checkout
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5 pt-3">
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <form onsubmit="event.preventDefault(); alert('Order placed successfully! This is a mock implementation.'); window.location.href='index.html';">
+                    <h4 class="font-heading mb-4 text-uppercase tracking-widest fs-6 fw-bold">Contact Information</h4>
+                    <div class="mb-5 bg-white p-4 border shadow-sm">
+                        <div class="mb-3">
+                            <label class="form-label text-muted fs-7 text-uppercase tracking-widest">Email Address</label>
+                            <input type="email" class="form-control border-secondary rounded-0 shadow-none py-2" required>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input rounded-0" type="checkbox" id="newsletter">
+                            <label class="form-check-label text-muted fs-7" for="newsletter">Keep me up to date on news</label>
+                        </div>
+                    </div>
+                    <h4 class="font-heading mb-4 text-uppercase tracking-widest fs-6 fw-bold">Shipping Address</h4>
+                    <div class="mb-5 bg-white p-4 border shadow-sm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label text-muted fs-7 text-uppercase tracking-widest">First Name</label>
+                                <input type="text" class="form-control border-secondary rounded-0 shadow-none py-2" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted fs-7 text-uppercase tracking-widest">Last Name</label>
+                                <input type="text" class="form-control border-secondary rounded-0 shadow-none py-2" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-muted fs-7 text-uppercase tracking-widest">Address</label>
+                                <input type="text" class="form-control border-secondary rounded-0 shadow-none py-2" required>
+                            </div>
+                            <div class="col-md-5">
+                                <label class="form-label text-muted fs-7 text-uppercase tracking-widest">City</label>
+                                <input type="text" class="form-control border-secondary rounded-0 shadow-none py-2" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label text-muted fs-7 text-uppercase tracking-widest">Zip Code</label>
+                                <input type="text" class="form-control border-secondary rounded-0 shadow-none py-2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100 py-3 text-uppercase tracking-widest fw-bold mb-4">Pay Now</button>
+                    <div class="text-center">
+                        <a href="cart.html" class="text-muted text-decoration-none fs-7"><i class="bi bi-chevron-left"></i> Return to cart</a>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-5">
+                <div class="position-sticky" style="top: 2rem;">
+                     <h4 class="font-heading mb-4 text-uppercase tracking-widest fs-6 fw-bold">In Your Cart</h4>
+                     <div class="bg-white p-4 border shadow-sm" id="checkout-summary-container">
+                        <div id="checkout-items"></div>
+                        <div class="border-top pt-3 mt-3">
+                            <div class="d-flex justify-content-between mb-2 text-muted fs-7">
+                                <span>Subtotal</span>
+                                <span id="checkout-subtotal">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3 pb-3 border-bottom text-muted fs-7">
+                                <span>Shipping</span>
+                                <span>$10.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center text-dark fw-bold">
+                                <span>Total</span>
+                                <span class="fs-4" id="checkout-total">$0.00</span>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = JSON.parse(localStorage.getItem('kylian_cart')) || [];
+            if(cart.length === 0) {
+                document.getElementById('checkout-items').innerHTML = '<p class="text-muted text-center py-3">Your cart is empty.</p>';
+                return;
+            }
+            let html = '';
+            let subtotal = 0;
+            cart.forEach(item => {
+                let itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                html += `
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="position-relative me-3">
+                            <div class="border" style="width: 60px; height: 60px; overflow: hidden; border-radius: 4px;">
+                                <img src="${item.image}" alt="${item.name}" class="w-100 h-100 object-fit-cover">
+                            </div>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-secondary">${item.quantity}</span>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0 fs-7 fw-medium">${item.name}</h6>
+                            <small class="text-muted fs-8">${item.size}</small>
+                        </div>
+                        <div class="fw-medium fs-7">$${itemTotal.toFixed(2)}</div>
+                    </div>
+                `;
+            });
+            document.getElementById('checkout-items').innerHTML = html;
+            document.getElementById('checkout-subtotal').textContent = '$' + subtotal.toFixed(2);
+            document.getElementById('checkout-total').textContent = '$' + (subtotal + 10).toFixed(2);
+        });
+    </script>
+</body>
+</html>

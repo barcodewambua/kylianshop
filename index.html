@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KylianShop | Premium Minimalist Fashion</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white border-bottom shadow-sm">
+        <div class="container pb-1 pt-1">
+            <a class="navbar-brand" href="index.html">KYLIAN</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-toggle="target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <a href="#" class="text-dark fs-5"><i class="bi bi-search"></i></a>
+                <a href="#" class="text-dark fs-5"><i class="bi bi-heart"></i></a>
+                <a href="cart.html" class="text-dark fs-5 position-relative">
+                    <i class="bi bi-cart3"></i>
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark" style="font-size: 0.65rem; display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section position-relative d-flex align-items-center" style="min-height: 90vh; background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071&auto=format&fit=crop'); background-size: cover; background-position: center;">
+        <!-- Overlay -->
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.3;"></div>
+        
+        <div class="container position-relative text-white">
+            <div class="row">
+                <div class="col-lg-6 col-md-8">
+                    <span class="text-uppercase tracking-widest mb-2 d-block" style="letter-spacing: 3px;">The New Standard</span>
+                    <h1 class="display-3 fw-bold mb-4 text-white">Elevate Your Everyday Essentials</h1>
+                    <p class="lead mb-5 opacity-75">Discover our latest collection of premium, minimalist apparel designed for the modern wardrobe. Sustainable, comfortable, and timeless.</p>
+                    <a href="shop.html" class="btn btn-outline text-white border-white bg-transparent me-3 p-3 px-5 transition-all hover-white text-uppercase" style="transition: all 0.3s;" onmouseover="this.classList.add('bg-white', 'text-dark')" onmouseout="this.classList.remove('bg-white', 'text-dark')">Shop Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section-padding py-5 mt-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Shop by Category</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="position-relative overflow-hidden group rounded-0" style="height: 500px; cursor: pointer;" onclick="location.href='shop.html?category=men'">
+                        <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?q=80&w=1887&auto=format&fit=crop" class="w-100 h-100 object-fit-cover transition-all" style="transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Men's Collection">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-to-t pb-5" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h3 class="text-white mb-0">Men's Apparel</h3>
+                            <a href="shop.html?category=men" class="text-white text-decoration-none border-bottom border-white pb-1 mt-2 d-inline-block">Discover</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="position-relative overflow-hidden group rounded-0" style="height: 500px; cursor: pointer;" onclick="location.href='shop.html?category=women'">
+                        <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=1905&auto=format&fit=crop" class="w-100 h-100 object-fit-cover transition-all" style="transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Women's Collection">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-to-t pb-5" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h3 class="text-white mb-0">Women's Apparel</h3>
+                            <a href="shop.html?category=women" class="text-white text-decoration-none border-bottom border-white pb-1 mt-2 d-inline-block">Discover</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="position-relative overflow-hidden group rounded-0" style="height: 500px; cursor: pointer;" onclick="location.href='shop.html?category=accessories'">
+                        <img src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?q=80&w=1887&auto=format&fit=crop" class="w-100 h-100 object-fit-cover transition-all" style="transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Accessories">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-to-t pb-5" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h3 class="text-white mb-0">Accessories</h3>
+                            <a href="shop.html?category=accessories" class="text-white text-decoration-none border-bottom border-white pb-1 mt-2 d-inline-block">Discover</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section-padding bg-light py-5">
+        <div class="container pt-5 pb-5">
+            <div class="d-flex justify-content-between align-items-end mb-5">
+                <h2 class="section-title mb-0">New Arrivals</h2>
+                <a href="shop.html" class="text-dark border-bottom border-dark pb-1 text-decoration-none text-uppercase fs-6">View All</a>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1780&auto=format&fit=crop" class="card-img-top" alt="Essential White Tee">
+                            <div class="position-absolute top-0 end-0 p-3">
+                                <span class="badge bg-dark rounded-0 px-2 py-1">NEW</span>
+                            </div>
+                            <div class="position-absolute w-100 bottom-0 start-0 p-2 opacity-0 product-actions transition-all" style="transform: translateY(100%); transition: all 0.3s ease;">
+                                <button class="btn btn-primary w-100 py-2" onclick="addToCart({id: 'p1', name: 'Essential White Tee', price: 45.00, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1780&auto=format&fit=crop'})">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="card-body bg-white text-center pb-2">
+                            <a href="product.html" class="text-decoration-none text-dark">
+                                <h5 class="product-title m-0">Essential White Tee</h5>
+                            </a>
+                            <p class="product-price mt-2 fs-5">$45.00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop" class="card-img-top" alt="Minimalist Black Jacket">
+                            <div class="position-absolute w-100 bottom-0 start-0 p-2 opacity-0 product-actions transition-all" style="transform: translateY(100%); transition: all 0.3s ease;">
+                                <button class="btn btn-primary w-100 py-2" onclick="addToCart({id: 'p2', name: 'Minimalist Black Jacket', price: 185.00, image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop'})">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="card-body bg-white text-center pb-2">
+                            <a href="product.html" class="text-decoration-none text-dark">
+                                <h5 class="product-title m-0">Minimalist Black Jacket</h5>
+                            </a>
+                            <p class="product-price mt-2 fs-5">$185.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1887&auto=format&fit=crop" class="card-img-top" alt="Classic Denim Jeans">
+                            <div class="position-absolute w-100 bottom-0 start-0 p-2 opacity-0 product-actions transition-all" style="transform: translateY(100%); transition: all 0.3s ease;">
+                                <button class="btn btn-primary w-100 py-2" onclick="addToCart({id: 'p3', name: 'Classic Denim Jeans', price: 120.00, image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1887&auto=format&fit=crop'})">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="card-body bg-white text-center pb-2">
+                            <a href="product.html" class="text-decoration-none text-dark">
+                                <h5 class="product-title m-0">Classic Denim Jeans</h5>
+                            </a>
+                            <p class="product-price mt-2 fs-5">$120.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1964&auto=format&fit=crop" class="card-img-top" alt="Oversized Beige Knit">
+                            <div class="position-absolute top-0 end-0 p-3">
+                                <span class="badge bg-danger rounded-0 px-2 py-1">SOLD OUT</span>
+                            </div>
+                            <div class="position-absolute w-100 bottom-0 start-0 p-2 opacity-0 product-actions transition-all" style="transform: translateY(100%); transition: all 0.3s ease;">
+                                <button class="btn btn-secondary w-100 py-2" disabled>OUT OF STOCK</button>
+                            </div>
+                        </div>
+                        <div class="card-body bg-white text-center pb-2">
+                            <a href="product.html" class="text-decoration-none text-dark">
+                                <h5 class="product-title m-0">Oversized Beige Knit</h5>
+                            </a>
+                            <p class="product-price mt-2 fs-5">$95.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials or Story CTA -->
+    <section class="py-5 bg-dark text-white text-center" style="padding: 100px 0;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <h3 class="mt-4 mb-4 fw-light font-body" style="line-height: 1.8;">"The quality of the materials and the precision of the cut make Kylian my go-to brand for everyday essentials. Truly elevated basics."</h3>
+                    <p class="text-uppercase tracking-widest text-white-50">— Vogue Paris</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-5 border-top border-bottom">
+        <div class="container py-5">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+                    <h3 class="mb-2">Join Our Newsletter</h3>
+                    <p class="text-muted mb-0">Get 15% off your first order and exclusive updates.</p>
+                </div>
+                <div class="col-md-6">
+                    <form class="d-flex border border-dark p-1">
+                        <input type="email" class="form-control border-0 shadow-none px-3 font-body bg-transparent" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary px-4 py-2">SUBSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer bg-white pt-5 mt-0">
+        <div class="container py-5 border-bottom">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <h4 class="mb-4 text-dark font-heading fw-bold">KYLIAN</h4>
+                    <p class="text-muted font-body mb-4">Crafting premium, minimalist wardrobe essentials that stand the test of time. Designed with purpose and sustainability in mind.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-dark fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-dark fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-dark fs-5"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4 font-heading fs-6 text-uppercase fw-bold">Shop</h5>
+                    <ul class="list-unstyled text-muted font-body">
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Men's</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Women's</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Accessories</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4 font-heading fs-6 text-uppercase fw-bold">About</h5>
+                    <ul class="list-unstyled text-muted font-body">
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none">Our Story</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Sustainability</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Press</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4 font-heading fs-6 text-uppercase fw-bold">Support</h5>
+                    <ul class="list-unstyled text-muted font-body">
+                        <li class="mb-2"><a href="#" class="text-decoration-none">FAQ</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Shipping & Returns</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Size Guide</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container py-4 text-center">
+            <p class="text-muted small mb-0">&copy; 2026 KylianShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <style>
+        .product-card:hover .product-actions {
+            transform: translateY(0) !important;
+            opacity: 1 !important;
+        }
+        .hover-white:hover {
+            background-color: white !important;
+            color: black !important;
+        }
+    </style>
+</body>
+</html>
