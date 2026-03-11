@@ -11,29 +11,8 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white border-bottom shadow-sm py-2">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">KYLIAN</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="d-flex align-items-center gap-3">
-                <a href="cart.html" class="text-dark fs-5 position-relative">
-                    <i class="bi bi-cart3"></i>
-                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark" style="font-size: 0.65rem; display: none;">0</span>
-                </a>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation placeholder -->
+    <div id="header-placeholder"></div>
 
     <!-- Header -->
     <div class="bg-light py-5 mt-5">
@@ -85,30 +64,31 @@
                 <div class="col-lg-8">
                     <div class="bg-white p-4 p-md-5 border shadow-sm">
                         <h4 class="font-heading fw-bold mb-4">Send us a message</h4>
-                        <form onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();">
+                        <form id="contactForm">
                             <div class="row g-4 mb-4">
                                 <div class="col-md-6">
                                     <label class="form-label text-muted fs-7 text-uppercase tracking-widest">First Name</label>
-                                    <input type="text" class="form-control border-secondary rounded-0 shadow-none py-2" required>
+                                    <input type="text" id="contact-fname" class="form-control border-secondary rounded-0 shadow-none py-2" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label text-muted fs-7 text-uppercase tracking-widest">Last Name</label>
-                                    <input type="text" class="form-control border-secondary rounded-0 shadow-none py-2" required>
+                                    <input type="text" id="contact-lname" class="form-control border-secondary rounded-0 shadow-none py-2" required>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label text-muted fs-7 text-uppercase tracking-widest">Email Address</label>
-                                    <input type="email" class="form-control border-secondary rounded-0 shadow-none py-2" required>
+                                    <input type="email" id="contact-email" class="form-control border-secondary rounded-0 shadow-none py-2" required>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label text-muted fs-7 text-uppercase tracking-widest">Subject</label>
-                                    <input type="text" class="form-control border-secondary rounded-0 shadow-none py-2" required>
+                                    <input type="text" id="contact-subject" class="form-control border-secondary rounded-0 shadow-none py-2" required>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label text-muted fs-7 text-uppercase tracking-widest">Message</label>
-                                    <textarea class="form-control border-secondary rounded-0 shadow-none py-2" rows="6" required></textarea>
+                                    <textarea id="contact-message" class="form-control border-secondary rounded-0 shadow-none py-2" rows="6" required></textarea>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-dark px-5 py-3 text-uppercase tracking-widest fw-bold">Send Message</button>
+                            <div id="contact-error" class="alert alert-danger rounded-0 d-none"></div>
+                            <button type="submit" id="btn-contact" class="btn btn-dark px-5 py-3 text-uppercase tracking-widest fw-bold">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -127,12 +107,68 @@
              <h4 class="mb-2 text-dark font-heading fw-bold">KYLIAN</h4>
              <p class="text-muted small">Elevating everyday essentials.</p>
         </div>
+        <div id="footer-auth-placeholder"></div>
         <div class="container py-3 text-center">
             <p class="text-muted small mb-0">&copy; 2026 KylianShop. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Auto-fill logged in user info
+            try {
+                const user = JSON.parse(localStorage.getItem('kylian_user'));
+                if (user && user.email) {
+                    document.getElementById('contact-email').value = user.email;
+                    if(user.firstName) document.getElementById('contact-fname').value = user.firstName;
+                    if(user.lastName) document.getElementById('contact-lname').value = user.lastName;
+                }
+            } catch(e) {}
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-contact');
+            const errEl = document.getElementById('contact-error');
+            const form = e.target;
+
+            const payload = {
+                firstName: document.getElementById('contact-fname').value,
+                lastName: document.getElementById('contact-lname').value,
+                email: document.getElementById('contact-email').value,
+                subject: document.getElementById('contact-subject').value,
+                message: document.getElementById('contact-message').value
+            };
+
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            errEl.classList.add('d-none');
+
+            try {
+                const res = await window.api.post('/contact', payload);
+                
+                // Show toast created by auth.js
+                if(window.showToast) {
+                    window.showToast(res.message || 'Message sent successfully!');
+                } else {
+                    showToast(res.message || 'Message sent successfully!');
+                }
+                
+                form.reset();
+            } catch (err) {
+                errEl.textContent = err.message || 'Failed to send message. Please try again.';
+                errEl.classList.remove('d-none');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Send Message';
+            }
+        });
+    </script>
 </body>
 </html>

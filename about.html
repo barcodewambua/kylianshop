@@ -28,6 +28,7 @@
             <div class="d-flex align-items-center gap-3">
                 <a href="cart.html" class="text-white fs-5 position-relative transition-all nav-icon">
                     <i class="bi bi-cart3"></i>
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark" style="font-size: 0.65rem; display: none;">0</span>
                 </a>
             </div>
         </div>
@@ -74,19 +75,23 @@
              <h4 class="mb-2 text-dark font-heading fw-bold">KYLIAN</h4>
              <p class="text-muted small">Elevating everyday essentials.</p>
         </div>
+        <div id="footer-auth-placeholder"></div>
         <div class="container py-3 text-center">
             <p class="text-muted small mb-0">&copy; 2026 KylianShop. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('mainNav');
             const logo = document.getElementById('brandLogo');
             const links = nav.querySelectorAll('.nav-link');
-            const icon = nav.querySelector('.nav-icon');
+            const icons = nav.querySelectorAll('.nav-icon');
             
             if (window.scrollY > 50) {
                 nav.classList.remove('bg-transparent', 'navbar-dark');
@@ -97,8 +102,16 @@
                     l.classList.remove('text-white');
                     l.classList.add('text-dark');
                 });
-                icon.classList.remove('text-white');
-                icon.classList.add('text-dark');
+                icons.forEach(icon => {
+                    icon.classList.remove('text-white', 'btn-outline-light');
+                    if(icon.tagName === 'BUTTON' && icon.id === 'auth-nav-login') {
+                        icon.classList.add('text-dark', 'btn-outline-dark');
+                    } else if (icon.tagName === 'BUTTON') {
+                        icon.classList.add('text-dark');
+                    } else {
+                        icon.classList.add('text-dark');
+                    }
+                });
             } else {
                 nav.classList.remove('bg-white', 'shadow-sm', 'navbar-light');
                 nav.classList.add('bg-transparent', 'navbar-dark');
@@ -108,8 +121,16 @@
                     l.classList.remove('text-dark');
                     l.classList.add('text-white');
                 });
-                icon.classList.remove('text-dark');
-                icon.classList.add('text-white');
+                icons.forEach(icon => {
+                    icon.classList.remove('text-dark', 'btn-outline-dark');
+                    if(icon.tagName === 'BUTTON' && icon.id === 'auth-nav-login') {
+                        icon.classList.add('btn-outline-light');
+                    } else if (icon.tagName === 'BUTTON') {
+                        icon.classList.add('text-white');
+                    } else {
+                        icon.classList.add('text-white');
+                    }
+                });
             }
         });
     </script>

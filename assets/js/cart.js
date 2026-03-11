@@ -1,5 +1,8 @@
 // Cart specific logic
 
+// formatting helper used across cart
+function formatPrice(value) { return 'KES ' + Number(value).toFixed(2); }
+
 document.addEventListener('DOMContentLoaded', () => {
     if(document.getElementById('cart-items-container')) {
         renderCart();
@@ -37,7 +40,7 @@ function renderCart() {
                     <small class="text-muted">Size: ${item.size}</small>
                 </div>
                 <div class="col-6 col-md-2 mt-3 mt-md-0 fw-bold">
-                    $${item.price.toFixed(2)}
+                    ${formatPrice(item.price)}
                 </div>
                 <div class="col-6 col-md-3 mt-3 mt-md-0">
                     <div class="input-group input-group-sm w-75">
@@ -59,9 +62,9 @@ function renderCart() {
     const subtotalEl = document.getElementById('cart-subtotal');
     const totalEl = document.getElementById('cart-total');
     
-    if(subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+    if(subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
     // Assuming flat $10 shipping for demonstration
-    if(totalEl) totalEl.textContent = '$' + (subtotal + 10).toFixed(2);
+    if(totalEl) totalEl.textContent = formatPrice(subtotal + 10);
     
     updateCartCount();
 }

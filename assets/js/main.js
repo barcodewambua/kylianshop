@@ -1,5 +1,10 @@
 // Main JavaScript for KylianShop
 
+// utility to format numbers as KES currency
+function formatPrice(value) {
+    return 'KES ' + Number(value).toFixed(2);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
@@ -34,6 +39,18 @@ function updateCartCount() {
 
 // Function to add item to cart (can be called from buttons)
 function addToCart(product) {
+    // require authentication for cart actions
+    const token = localStorage.getItem('kylian_token');
+    if (!token) {
+        // open auth modal if not logged in
+        const modalEl = document.getElementById('authModal');
+        if (modalEl) {
+            const modal = new bootstrap.Modal(modalEl);
+            modal.show();
+        }
+        return; // do not add to cart
+    }
+
     let cart = JSON.parse(localStorage.getItem('kylian_cart')) || [];
     
     const existingItemIndex = cart.findIndex(item => item.id === product.id && item.size === product.size);
@@ -55,5 +72,5 @@ function addToCart(product) {
     updateCartCount();
     
     // Optional: Show a toast or notification
-    alert('Item added to cart!');
+    showToast('Item added to cart!');
 }
